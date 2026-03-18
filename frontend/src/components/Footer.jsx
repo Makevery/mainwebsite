@@ -1,132 +1,107 @@
-import { Phone, Mail, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer 
-      className="py-16 bg-slate-950 border-t border-slate-800"
+      className="py-16 bg-[#0a0a0a] border-t border-[#1a1a1a]"
       data-testid="footer"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-teal-500 rounded-sm flex items-center justify-center">
-                <span className="font-heading font-bold text-white text-xl">M</span>
+              <div className="w-10 h-10 bg-[#2CFF95] rounded flex items-center justify-center">
+                <span className="font-bold text-black text-xl">M</span>
               </div>
               <div>
-                <span className="font-heading font-bold text-slate-50 text-2xl tracking-tight block">
+                <span className="font-bold text-white text-xl tracking-tight block leading-none">
                   MAKERISE
                 </span>
-                <span className="text-xs uppercase tracking-widest text-slate-500">
-                  Innovations
+                <span className="text-[10px] text-[#555] tracking-widest">
+                  INNOVATIONS PVT. LTD
                 </span>
               </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md font-body mb-6">
+            <p className="text-[#888] text-sm leading-relaxed max-w-md mb-6">
               Pioneering the future of additive manufacturing with India's first 
               liquid-based composite 3D printer. Built with precision, powered by innovation.
             </p>
-            <div className="flex items-center gap-2 text-sm text-slate-500">
-              <span className="inline-block w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
+            <div className="flex items-center gap-2 text-sm text-[#555]">
+              <span className="inline-block w-2 h-2 bg-[#2CFF95] rounded-full animate-pulse" />
               Led by R&D experts from IIT Indore
             </div>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading text-lg font-bold text-slate-50 mb-6">
+            <h4 className="text-lg font-semibold text-white mb-6">
               Contact Us
             </h4>
             <div className="space-y-4">
               <a 
                 href="tel:+919340151871" 
-                className="flex items-center gap-3 text-slate-400 hover:text-teal-400 transition-colors"
+                className="flex items-center gap-3 text-[#888] hover:text-[#2CFF95] transition-colors"
                 data-testid="footer-phone"
               >
                 <Phone className="w-4 h-4" />
-                <span className="text-sm font-body">+91-9340151871</span>
+                <span className="text-sm">+91-9340151871</span>
               </a>
               <a 
                 href="mailto:wemakeverything@gmail.com" 
-                className="flex items-center gap-3 text-slate-400 hover:text-teal-400 transition-colors"
+                className="flex items-center gap-3 text-[#888] hover:text-[#2CFF95] transition-colors"
                 data-testid="footer-email"
               >
                 <Mail className="w-4 h-4" />
-                <span className="text-sm font-body">wemakeverything@gmail.com</span>
+                <span className="text-sm">wemakeverything@gmail.com</span>
               </a>
-              <div className="flex items-start gap-3 text-slate-400">
+              <div className="flex items-start gap-3 text-[#888]">
                 <MapPin className="w-4 h-4 mt-0.5" />
-                <span className="text-sm font-body">IIT Indore, Madhya Pradesh, India</span>
+                <span className="text-sm">IIT Indore, Madhya Pradesh, India</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-bold text-slate-50 mb-6">
+            <h4 className="text-lg font-semibold text-white mb-6">
               Quick Links
             </h4>
             <div className="space-y-3">
-              <a 
-                href="#innovation" 
-                className="block text-sm text-slate-400 hover:text-teal-400 transition-colors font-body"
-              >
-                Innovation
-              </a>
-              <a 
-                href="#technology" 
-                className="block text-sm text-slate-400 hover:text-teal-400 transition-colors font-body"
-              >
-                Technology
-              </a>
-              <a 
-                href="#applications" 
-                className="block text-sm text-slate-400 hover:text-teal-400 transition-colors font-body"
-              >
-                Applications
-              </a>
-              <a 
-                href="#contact" 
-                className="block text-sm text-slate-400 hover:text-teal-400 transition-colors font-body"
-              >
-                Contact R&D
-              </a>
+              {[
+                { label: "Product", href: "#product" },
+                { label: "Technology", href: "#technology" },
+                { label: "Journey", href: "#journey" },
+                { label: "Applications", href: "#applications" },
+                { label: "Contact", href: "#contact" },
+              ].map((link) => (
+                <a 
+                  key={link.label}
+                  href={link.href} 
+                  className="block text-sm text-[#888] hover:text-[#2CFF95] transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500 font-body">
-            © {new Date().getFullYear()} Makerise Innovations. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-[#1a1a1a] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-[#555]">
+            © {new Date().getFullYear()} Makerise Innovations Pvt. Ltd. All rights reserved.
           </p>
           
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a 
               href="#" 
-              className="w-8 h-8 bg-slate-800 border border-slate-700 rounded-sm flex items-center justify-center text-slate-400 hover:text-teal-400 hover:border-teal-500/50 transition-colors"
+              className="w-8 h-8 bg-[#111] border border-[#222] rounded-lg flex items-center justify-center text-[#888] hover:text-[#2CFF95] hover:border-[#2CFF95]/50 transition-all"
               aria-label="LinkedIn"
               data-testid="social-linkedin"
             >
               <Linkedin className="w-4 h-4" />
-            </a>
-            <a 
-              href="#" 
-              className="w-8 h-8 bg-slate-800 border border-slate-700 rounded-sm flex items-center justify-center text-slate-400 hover:text-teal-400 hover:border-teal-500/50 transition-colors"
-              aria-label="Twitter"
-              data-testid="social-twitter"
-            >
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a 
-              href="#" 
-              className="w-8 h-8 bg-slate-800 border border-slate-700 rounded-sm flex items-center justify-center text-slate-400 hover:text-teal-400 hover:border-teal-500/50 transition-colors"
-              aria-label="GitHub"
-              data-testid="social-github"
-            >
-              <Github className="w-4 h-4" />
             </a>
           </div>
         </div>

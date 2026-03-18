@@ -72,76 +72,95 @@ export default function ContactSection() {
   return (
     <section 
       id="contact" 
-      className="py-20 md:py-32 bg-slate-900"
+      className="py-24 lg:py-32 bg-[#0d0d0d]"
       data-testid="contact-section"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-xs uppercase tracking-widest text-teal-400 font-medium mb-4 block">
-            Get in Touch
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-50 mb-6">
-            Ready to
-            <span className="text-teal-400"> Innovate Together?</span>
-          </h2>
-          <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto font-body">
-            Whether you're exploring research partnerships or seeking advanced 
-            manufacturing solutions, our R&D team is here to help.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left - Content */}
+          <div>
+            <div className="green-line" />
+            <span className="text-xs text-[#2CFF95] font-medium tracking-widest mb-4 block uppercase">
+              Get in Touch
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Ready to
+              <span className="text-green-accent"> Innovate Together?</span>
+            </h2>
+            <p className="text-[#888] text-base lg:text-lg mb-8">
+              Whether you're exploring research partnerships or seeking advanced 
+              manufacturing solutions, our R&D team is here to help.
+            </p>
 
-        {/* Contact Form */}
-        <div className="max-w-2xl mx-auto">
-          <div className="card-industrial p-8 md:p-12 rounded-sm">
+            {/* How it works */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-white mb-4">How it works:</h3>
+              {[
+                { step: 1, text: "Send us a message with your requirements" },
+                { step: 2, text: "We'll schedule a call to discuss your needs" },
+                { step: 3, text: "Design & integration consultation" },
+                { step: 4, text: "Manufacturing & delivery coordination" },
+              ].map((item) => (
+                <div key={item.step} className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-[#2CFF95]/10 border border-[#2CFF95]/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-[#2CFF95] text-sm font-semibold">{item.step}</span>
+                  </div>
+                  <p className="text-[#888] text-sm pt-1">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right - Form */}
+          <div className="card-dark p-8 lg:p-10 rounded-xl">
             <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
-              {/* Name & Email Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label 
-                    htmlFor="name" 
-                    className="block text-xs uppercase tracking-widest text-slate-400 font-medium mb-2"
-                  >
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="input-industrial h-12 rounded-sm"
-                    data-testid="contact-name-input"
-                    required
-                  />
-                </div>
-                <div>
-                  <label 
-                    htmlFor="email" 
-                    className="block text-xs uppercase tracking-widest text-slate-400 font-medium mb-2"
-                  >
-                    Email Address
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="john@company.com"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="input-industrial h-12 rounded-sm"
-                    data-testid="contact-email-input"
-                    required
-                  />
-                </div>
+              {/* Name */}
+              <div>
+                <label 
+                  htmlFor="name" 
+                  className="block text-xs text-[#888] font-medium mb-2 uppercase tracking-wider"
+                >
+                  Your Name
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="John Doe"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="form-input h-12 rounded-lg bg-[#1a1a1a] border-[#222]"
+                  data-testid="contact-name-input"
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label 
+                  htmlFor="email" 
+                  className="block text-xs text-[#888] font-medium mb-2 uppercase tracking-wider"
+                >
+                  Email Address
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="john@company.com"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="form-input h-12 rounded-lg bg-[#1a1a1a] border-[#222]"
+                  data-testid="contact-email-input"
+                  required
+                />
               </div>
 
               {/* Inquiry Type */}
               <div>
                 <label 
                   htmlFor="inquiry_type" 
-                  className="block text-xs uppercase tracking-widest text-slate-400 font-medium mb-2"
+                  className="block text-xs text-[#888] font-medium mb-2 uppercase tracking-wider"
                 >
                   Inquiry Type
                 </label>
@@ -150,17 +169,17 @@ export default function ContactSection() {
                   onValueChange={handleSelectChange}
                 >
                   <SelectTrigger 
-                    className="input-industrial h-12 rounded-sm"
+                    className="form-input h-12 rounded-lg bg-[#1a1a1a] border-[#222]"
                     data-testid="contact-inquiry-select"
                   >
                     <SelectValue placeholder="Select inquiry type" />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-slate-700">
+                  <SelectContent className="bg-[#1a1a1a] border-[#333]">
                     {inquiryTypes.map((type) => (
                       <SelectItem 
                         key={type.value} 
                         value={type.value}
-                        className="text-slate-100 focus:bg-slate-700 focus:text-slate-50"
+                        className="text-white focus:bg-[#222] focus:text-white"
                       >
                         {type.label}
                       </SelectItem>
@@ -173,7 +192,7 @@ export default function ContactSection() {
               <div>
                 <label 
                   htmlFor="message" 
-                  className="block text-xs uppercase tracking-widest text-slate-400 font-medium mb-2"
+                  className="block text-xs text-[#888] font-medium mb-2 uppercase tracking-wider"
                 >
                   Your Message
                 </label>
@@ -183,7 +202,7 @@ export default function ContactSection() {
                   placeholder="Tell us about your project or inquiry..."
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="input-industrial min-h-32 rounded-sm resize-none"
+                  className="form-input min-h-32 rounded-lg resize-none bg-[#1a1a1a] border-[#222]"
                   data-testid="contact-message-input"
                   required
                 />
@@ -193,7 +212,7 @@ export default function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-primary h-14 text-base rounded-sm flex items-center justify-center gap-2"
+                className="w-full btn-green h-14 text-base rounded-lg flex items-center justify-center gap-2"
                 data-testid="contact-submit-btn"
               >
                 {isSubmitting ? (
@@ -204,7 +223,7 @@ export default function ContactSection() {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Initiate Collaboration
+                    Send Message
                   </>
                 )}
               </Button>
