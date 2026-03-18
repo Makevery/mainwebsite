@@ -37,7 +37,7 @@ export default function MissionSection() {
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
             >
               Opening the door to{" "}
-              <span className="text-green-accent">mass adoption</span>
+              <span className="text-green-accent">advanced materials 3D printing</span>
             </motion.h2>
             
             <motion.p
@@ -46,10 +46,10 @@ export default function MissionSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-[#888] text-base lg:text-lg leading-relaxed mb-8"
             >
-              Traditional FDM printers are limited by material constraints and waste. 
-              Our patented liquid extrusion technology enables unlimited material volume, 
-              processes recycled plastics, and delivers precision previously impossible 
-              with conventional methods.
+              Go beyond traditional filaments with our patented liquid extrusion technology. 
+              Print with advanced materials like silicones for flexible parts, high-performance 
+              epoxies for structural components, polyurethane foams for cushioning, and specialty 
+              composites – all on a single modular platform.
             </motion.p>
 
             <motion.a
@@ -71,14 +71,12 @@ export default function MissionSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden glow-green-sm">
+            <div className="relative rounded-2xl overflow-hidden glow-green-sm bg-[#0a0a0a] p-4">
               <img
-                src="/images/incept1/image98.png"
-                alt="INCEPT-1 Extrusion System"
+                src="/images/incept1/incept1_printer.png"
+                alt="INCEPT-1 3D Printer"
                 className="w-full h-auto"
               />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
             </div>
           </motion.div>
         </div>
