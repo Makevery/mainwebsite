@@ -1,0 +1,174 @@
+{
+  "project_name": "Makerise Innovations - INCEPT-1 Landing Page",
+  "theme": "Industrial Minimalism",
+  "persona_tone": "Precision, Innovation, Reliability, Future-Tech",
+  "target_audience": ["Industrial Manufacturing", "Aerospace Engineers", "Bio-fabrication Researchers", "R&D Labs"],
+  "typography": {
+    "headings": {
+      "font_family": "Barlow Condensed, sans-serif",
+      "weights": ["600", "700", "800"],
+      "usage": "Use for all section titles, hero headlines, and major feature callouts. Letter-spacing: tracking-tight.",
+      "google_font_import": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@300;400;500;600&display=swap"
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["300", "400", "500"],
+      "usage": "Use for all paragraph text, specifications, and form labels. High readability.",
+      "letter_spacing": "tracking-wide for small labels"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "name": "Industrial Slate",
+        "hex": "#0f172a",
+        "tailwind": "bg-slate-950",
+        "usage": "Main background, footer background"
+      },
+      "secondary": {
+        "name": "Gunmetal Grey",
+        "hex": "#1e293b",
+        "tailwind": "bg-slate-800",
+        "usage": "Cards, section dividers, form backgrounds"
+      },
+      "accent": {
+        "name": "Makerise Teal",
+        "hex": "#008080",
+        "tailwind": "text-teal-500",
+        "hover": "hover:bg-teal-600",
+        "usage": "Primary buttons, icons, highlight text, active states"
+      },
+      "text": {
+        "primary": "#f8fafc",
+        "secondary": "#94a3b8",
+        "tailwind_primary": "text-slate-50",
+        "tailwind_secondary": "text-slate-400"
+      },
+      "border": {
+        "default": "border-slate-700",
+        "active": "border-teal-500/50"
+      }
+    },
+    "gradients": {
+      "hero_overlay": "bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent",
+      "card_hover": "hover:bg-gradient-to-br hover:from-slate-800 hover:to-slate-700"
+    }
+  },
+  "layout_structure": {
+    "spacing_system": {
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_spacing": "py-20 md:py-32",
+      "element_gap": "gap-8 md:gap-12"
+    },
+    "grid_system": {
+      "bento_grid": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "feature_split": "grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+    }
+  },
+  "visual_enhancers": {
+    "border_style": "1px solid border-slate-700",
+    "radius": "rounded-sm",
+    "shadows": "shadow-2xl shadow-black/50",
+    "textures": "Use subtle noise overlay or carbon fiber pattern on specific dark sections for depth.",
+    "glassmorphism": "backdrop-blur-md bg-slate-900/80 border border-slate-700/50 (Use sparingly, mainly for sticky nav)"
+  },
+  "components_instructions": {
+    "buttons": {
+      "style": "Sharp edges or minimal rounded-sm. Solid Teal background with White text for primary. Outline Slate-500 for secondary.",
+      "hover": "Transform -translate-y-1, shadow-lg shadow-teal-900/20"
+    },
+    "cards": {
+      "style": "Flat slate-800 background, 1px slate-700 border. No massive shadows initially.",
+      "hover": "Border becomes Teal-500/30, slight lift."
+    },
+    "forms": {
+      "input_style": "bg-slate-900 border-slate-700 text-slate-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 rounded-sm h-12"
+    },
+    "navigation": {
+      "style": "Fixed, glassmorphism. Logo left, Links right (hidden mobile), Hamburger mobile.",
+      "links": "Uppercase, tracking-widest, text-xs, hover:text-teal-400 transition-colors"
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "reveal": "Fade up with slight scale (0.95 -> 1.0) for sections.",
+    "stagger": "Stagger children elements by 0.1s.",
+    "hover_effects": "Hardware-accelerated transforms only (translate, scale, rotate). Avoid width/height animations."
+  },
+  "sections_breakdown": [
+    {
+      "name": "Hero",
+      "type": "Immersive",
+      "elements": [
+        "Full height (min-h-screen)",
+        "Background Image: Industrial Printer Operation",
+        "Overlay: Dark gradient from left",
+        "Headline: 'Add Another Dimension to Your 2D World' (Barlow Condensed, 6xl)",
+        "Subhead: 'India's first liquid-based composite 3D printer...'",
+        "CTA Group: Primary 'Explore Incept-1', Secondary 'Contact R&D'"
+      ]
+    },
+    {
+      "name": "The Innovation",
+      "type": "Bento Grid",
+      "elements": [
+        "Card 1 (Large): 'Smart Flow Control' - Focus on precision.",
+        "Card 2 (Small): 'Unlimited Material Volume'.",
+        "Card 3 (Small): 'Activated Composite Fabrication' (Silicone, Epoxies, Alginates)."
+      ]
+    },
+    {
+      "name": "Technical Excellence",
+      "type": "Split Layout",
+      "elements": [
+        "Left: Detailed specs list (Luer-lock nozzle, Stepper Peristaltic Pump).",
+        "Right: High-tech visual of the mechanism (schematic or close-up)."
+      ]
+    },
+    {
+      "name": "Applications",
+      "type": "Image Grid with Overlay",
+      "elements": [
+        "Aerospace (Jet Engine Image)",
+        "Biofabrication (Spine/Medical Image)",
+        "Healthcare (Implants)",
+        "Manufacturing (Industrial Parts)"
+      ]
+    },
+    {
+      "name": "Contact",
+      "type": "Centered Form",
+      "elements": [
+        "Simple fields: Name, Email, Inquiry Type, Message.",
+        "Dark card container.",
+        "Submit Button: 'Initiate Collaboration'"
+      ]
+    },
+    {
+      "name": "Footer",
+      "type": "Minimal",
+      "elements": [
+        "Contact Info: +91-9340151871 | wemakeverything@gmail.com",
+        "Team Credit: 'Led by R&D experts from IIT Indore'",
+        "Social Links (Placeholder)"
+      ]
+    }
+  ],
+  "assets_mapping": {
+    "hero_bg": "https://images.unsplash.com/photo-1758387933125-5ac945b4e2cd",
+    "carbon_texture": "https://images.unsplash.com/photo-1770172505275-af7611ee5cc2",
+    "application_aerospace": "https://images.unsplash.com/photo-1755151743039-f064d26b01fb",
+    "application_medical": "https://images.unsplash.com/photo-1772122028898-1640a4dd2d7f",
+    "application_manufacturing": "https://images.unsplash.com/photo-1638478872316-32fb5d4c2b21",
+    "tech_mechanism": "https://images.unsplash.com/photo-1539261840634-2966927034c1"
+  },
+  "universal_guidelines": [
+    "Do not use gradients for text.",
+    "Ensure 4.5:1 contrast for all text.",
+    "Use data-testid attributes for all interactive elements.",
+    "Mobile-first responsive design is mandatory.",
+    "Avoid 'Inter' font for headings; use 'Barlow Condensed'.",
+    "Use 'Manrope' for body text.",
+    "No generic AI emojis."
+  ]
+}
