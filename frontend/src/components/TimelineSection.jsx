@@ -3,7 +3,7 @@ const timelineEvents = [
     year: "2023",
     title: "Conceptualization",
     description: "INCEPT-1 was conceptualized to tackle cost and waste material in FDM 3D printing, as well as enable usage of variety of materials beyond traditional filaments.",
-    image: "/images/incept1/image58.jpeg",
+    image: "/images/incept1/image98.png",
     side: "left",
   },
   {
