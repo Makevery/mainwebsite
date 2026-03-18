@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Rocket } from "lucide-react";
 
 const timelineEvents = [
   {
@@ -8,24 +9,29 @@ const timelineEvents = [
     title: "Conceptualization",
     description: "INCEPT-1 was conceptualized to tackle cost and waste in FDM 3D printing, enabling variety of materials beyond traditional filaments.",
     image: "/images/incept1/image98.png",
+    isGraphic: false,
   },
   {
     year: "2024",
     title: "Development",
     description: "Static experimental setup created for assessing stepper, valve, and nozzle performance with multiple material validation.",
-    image: "/images/incept1/image39.jpeg",
+    image: "/images/incept1/image48.png",
+    isGraphic: false,
   },
   {
     year: "2024",
     title: "Material Testing",
     description: "Successful testing with polyurethane, silicone, alginate, fumed silica, and calcium carbonate composites.",
-    image: "/images/incept1/image40.jpeg",
+    image: "/images/incept1/image85.png",
+    isGraphic: false,
   },
   {
     year: "2025",
     title: "Today",
     description: "Development review at TRIPRAMAN, NCAM Hyderabad. Ready for collaborative partnerships and commercial deployment.",
-    image: "/images/incept1/image95.jpeg",
+    image: null,
+    isGraphic: true,
+    icon: Rocket,
   },
 ];
 
@@ -110,19 +116,35 @@ export default function TimelineSection() {
                   />
                 </div>
 
-                {/* Image */}
+                {/* Image or Graphic */}
                 <motion.div 
                   className={`${index % 2 === 1 ? "lg:order-1" : ""}`}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="rounded-xl overflow-hidden glow-green-sm border border-[#1f1f1f]">
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="w-full h-64 lg:h-80 object-cover"
-                    />
-                  </div>
+                  {event.isGraphic ? (
+                    <div className="rounded-xl overflow-hidden glow-green-sm border border-[#1f1f1f] bg-[#0d0d0d] h-64 lg:h-80 flex items-center justify-center">
+                      <div className="text-center">
+                        <motion.div 
+                          className="w-24 h-24 mx-auto mb-6 bg-[#2CFF95]/10 border border-[#2CFF95]/30 rounded-2xl flex items-center justify-center"
+                          animate={{ y: [0, -10, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <event.icon className="w-12 h-12 text-[#2CFF95]" strokeWidth={1.5} />
+                        </motion.div>
+                        <p className="text-[#2CFF95] font-semibold text-lg">Ready for Launch</p>
+                        <p className="text-[#666] text-sm mt-2">Commercial Partnerships</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="rounded-xl overflow-hidden glow-green-sm border border-[#1f1f1f]">
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="w-full h-64 lg:h-80 object-contain bg-[#0a0a0a]"
+                      />
+                    </div>
+                  )}
                 </motion.div>
               </motion.div>
             ))}
