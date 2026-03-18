@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { Droplets, Infinity, Layers, Zap } from "lucide-react";
 
 const features = [
@@ -5,76 +8,112 @@ const features = [
     id: 1,
     icon: Droplets,
     title: "Smart Flow Control",
-    description: "Advanced real-time flow monitoring and adjustment system ensuring precise material deposition for complex geometries and varying viscosities.",
+    description: "Advanced real-time flow monitoring ensuring precise material deposition for complex geometries.",
   },
   {
     id: 2,
     icon: Infinity,
-    title: "Unlimited Material Volume",
-    description: "Continuous feed system eliminates material constraints, enabling large-scale manufacturing without interruption or size limitations.",
+    title: "Unlimited Volume",
+    description: "Continuous feed system eliminates material constraints for large-scale manufacturing.",
   },
   {
     id: 3,
     icon: Layers,
-    title: "Activated Composite Fabrication",
-    description: "Process silicone, epoxies, alginates, polyurethane, and advanced composites with unmatched versatility and precision.",
+    title: "Composite Fabrication",
+    description: "Process silicone, epoxies, alginates, and advanced composites with unmatched versatility.",
   },
   {
     id: 4,
     icon: Zap,
-    title: "Patented Extrusion Tech",
-    description: "Revolutionary patented technology specifically designed for recycled plastic waste, contributing to sustainable manufacturing.",
+    title: "Patented Technology",
+    description: "Revolutionary extrusion technology for recycled plastic waste and sustainable manufacturing.",
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function FeaturesSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <section 
       id="features" 
+      ref={ref}
       className="py-24 lg:py-32 bg-[#0d0d0d] relative"
       data-testid="features-section"
     >
-      {/* Section Divider */}
       <div className="section-divider mb-24" />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-xs text-[#2CFF95] font-medium tracking-widest mb-4 block uppercase">
+        <div className="text-center mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-xs text-[#2CFF95] font-medium tracking-widest mb-4 block uppercase"
+          >
             Key Features
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Engineering the Future of
-            <br />
-            <span className="text-green-accent">Additive Manufacturing</span>
-          </h2>
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+          >
+            Engineering the Future
+          </motion.h2>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {features.map((feature, index) => (
-            <div
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {features.map((feature) => (
+            <motion.div
               key={feature.id}
-              className="card-dark app-card-hover p-8 rounded-xl"
+              variants={itemVariants}
+              className="card-dark p-8 rounded-xl group"
               data-testid={`feature-card-${feature.id}`}
             >
               {/* Icon */}
-              <div className="feature-icon mb-6">
-                <feature.icon className="w-8 h-8" strokeWidth={1.5} />
+              <div className="feature-icon-container mb-6">
+                <feature.icon className="w-7 h-7 text-[#2CFF95]" strokeWidth={1.5} />
               </div>
 
               {/* Title */}
-              <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-[#2CFF95] transition-colors">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[#888] text-sm lg:text-base leading-relaxed">
+              <p className="text-[#888] text-sm leading-relaxed">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

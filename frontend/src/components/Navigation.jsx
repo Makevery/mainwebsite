@@ -1,14 +1,27 @@
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
+  { label: "Mission", href: "#mission" },
+  { label: "Features", href: "#features" },
   { label: "Product", href: "#product" },
-  { label: "Technology", href: "#technology" },
   { label: "Journey", href: "#journey" },
   { label: "Applications", href: "#applications" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Navigation({ mobileMenuOpen, setMobileMenuOpen }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToSection = (e, href) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -19,79 +32,99 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen }) {
   };
 
   return (
-    <nav 
-      className="fixed top-0 left-0 right-0 z-50 nav-blur"
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "nav-blur" : "bg-transparent"
+      }`}
       data-testid="main-navigation"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a 
+          <motion.a 
             href="#" 
             className="flex items-center gap-3"
+            whileHover={{ scale: 1.02 }}
             data-testid="logo-link"
           >
-            <div className="w-8 h-8 bg-[#2CFF95] rounded flex items-center justify-center">
-              <span className="font-bold text-black text-lg">M</span>
+            <div className="w-10 h-10 bg-[#2CFF95] rounded-lg flex items-center justify-center">
+              <span className="font-bold text-black text-xl">M</span>
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-white text-lg tracking-tight leading-none">
                 MAKERISE
               </span>
-              <span className="text-[10px] text-[#888] tracking-widest">
+              <span className="text-[10px] text-[#666] tracking-[0.2em]">
                 INNOVATIONS
               </span>
             </div>
-          </a>
+          </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
+          <div className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link, index) => (
+              <motion.a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm text-[#888] hover:text-[#2CFF95] transition-colors duration-300"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.4 }}
+                className="text-sm text-[#888] hover:text-[#2CFF95] transition-colors duration-300 relative group"
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
               >
                 {link.label}
-              </a>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#2CFF95] transition-all duration-300 group-hover:w-full" />
+              </motion.a>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.95 }}
             className="lg:hidden p-2 text-[#888] hover:text-[#2CFF95] transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
             data-testid="mobile-menu-toggle"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div 
-            className="lg:hidden mobile-menu py-6 border-t border-[#222]"
-            data-testid="mobile-menu"
-          >
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-base text-[#888] hover:text-[#2CFF95] transition-colors py-2"
-                  data-testid={`mobile-nav-link-${link.label.toLowerCase()}`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden overflow-hidden border-t border-[#1f1f1f]"
+              data-testid="mobile-menu"
+            >
+              <div className="py-6 space-y-4 bg-[#0a0a0a]/95 backdrop-blur-xl">
+                {navLinks.map((link, index) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * index }}
+                    className="block text-base text-[#888] hover:text-[#2CFF95] transition-colors py-2"
+                    data-testid={`mobile-nav-link-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

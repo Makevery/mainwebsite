@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
-import ProductShowcase from "../components/ProductShowcase";
+import MissionSection from "../components/MissionSection";
 import FeaturesSection from "../components/FeaturesSection";
-import TechnologySection from "../components/TechnologySection";
+import ProductSection from "../components/ProductSection";
 import TimelineSection from "../components/TimelineSection";
 import ApplicationsSection from "../components/ApplicationsSection";
 import ContactSection from "../components/ContactSection";
@@ -13,16 +13,16 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] noise-bg">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Navigation 
         mobileMenuOpen={mobileMenuOpen} 
         setMobileMenuOpen={setMobileMenuOpen} 
       />
       <main>
         <HeroSection />
-        <ProductShowcase />
+        <MissionSection />
         <FeaturesSection />
-        <TechnologySection />
+        <ProductSection />
         <TimelineSection />
         <ApplicationsSection />
         <ContactSection />
