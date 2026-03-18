@@ -7,6 +7,8 @@ Create a high-converting, minimal, and modern landing page for "Makerise Innovat
 - Integrated printer concept images from PPT presentation
 - Upgraded theme inspired by GreenJets.com (dark theme, green #2CFF95 accents)
 - Added Timeline/Journey section with development history
+- Implemented Framer Motion animations (scroll-triggered, hover effects, staggered reveals)
+- Applications section now uses vector icons only (no photos)
 
 ## User Personas
 - **Industrial Manufacturers**: Looking for advanced 3D printing solutions
