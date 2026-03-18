@@ -22,8 +22,9 @@ const timelineEvents = [
   year: "2024",
   title: "Material Testing",
   description: "Successful testing with polyurethane, silicone, alginate, fumed silica, and calcium carbonate composites.",
-  image: "/images/incept1/image85.png",
-  isGraphic: false
+  image: "/images/incept1/material_testing_diagram.png",
+  isGraphic: false,
+  isDiagram: true
 },
 {
   year: "2025",
@@ -135,6 +136,17 @@ export default function TimelineSection() {
                         <p className="text-[#2CFF95] font-semibold text-lg">Ready for Launch</p>
                         <p className="text-[#666] text-sm mt-2">Commercial Partnerships</p>
                       </div>
+                    </div> : event.isDiagram ?
+                    
+                <div className="rounded-xl overflow-hidden glow-green-sm border border-[#2CFF95]/30 bg-[#0a0a0a] p-6 h-64 lg:h-80 flex items-center justify-center relative">
+                      {/* Dark theme diagram styling */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#2CFF95]/5 to-transparent pointer-events-none" />
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="w-full h-full object-contain invert brightness-90 hue-rotate-[120deg]"
+                        style={{ filter: 'invert(1) brightness(0.85) sepia(1) hue-rotate(90deg) saturate(5)' }}
+                      />
                     </div> :
 
                 <div className="rounded-xl overflow-hidden glow-green-sm border border-[#1f1f1f]">
