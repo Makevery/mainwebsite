@@ -129,15 +129,13 @@ export default function ApplicationsSection() {
         </motion.div>
 
         {/* Materials Banner */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="">
 
-          <h3 className="text-xl lg:text-2xl font-semibold text-white mb-6">
-            Compatible Materials
-          </h3>
+          
           <div className="flex flex-wrap justify-center gap-3">
             {materials.map((material, index) =>
             <motion.span
@@ -152,7 +150,7 @@ export default function ApplicationsSection() {
               </motion.span>
             )}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>);
 

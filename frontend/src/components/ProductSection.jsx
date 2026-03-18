@@ -1,32 +1,45 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Clock } from "lucide-react";
 
-const productImages = [
+const materials = [
   {
     id: 1,
-    src: "/images/incept1/image88.png",
-    label: "Complete Assembly",
-    description: "Full machine overview with integrated systems",
-    large: true,
+    name: "Silicone",
+    description: "Flexible, heat-resistant parts for gaskets, seals, and medical devices",
+    image: "https://images.unsplash.com/photo-1702745879182-2656d9e33d4b?w=600&q=80",
+    available: true,
   },
   {
     id: 2,
-    src: "/images/incept1/image26.png",
-    label: "Luer-Lock Nozzle",
-    description: "Medical-grade quick-swap mechanism",
+    name: "Epoxy Resin",
+    description: "High-strength structural components and protective coatings",
+    image: "https://images.unsplash.com/photo-1685866670005-4d1255c747f0?w=600&q=80",
+    available: true,
   },
   {
     id: 3,
-    src: "/images/incept1/image48.png",
-    label: "Peristaltic Pump",
-    description: "High-precision material delivery",
+    name: "Foam",
+    description: "Lightweight cushioning, insulation, and packaging solutions",
+    image: "https://images.unsplash.com/photo-1598998267982-d2a80038fd0b?w=600&q=80",
+    available: true,
   },
   {
     id: 4,
-    src: "/images/incept1/image85.png",
-    label: "Servo Valve System",
-    description: "Flow control for precision dispensing",
+    name: "Conductive Ink",
+    description: "PCB manufacturing and electronic circuit prototyping",
+    image: "https://images.unsplash.com/photo-1760842543713-108c3cadbba1?w=600&q=80",
+    available: false,
+    comingSoon: true,
+  },
+  {
+    id: 5,
+    name: "Carbon / Glass Fibers",
+    description: "Continuous fiber reinforcement for high-strength composites",
+    image: "https://images.unsplash.com/photo-1763088545795-01206e04c40d?w=600&q=80",
+    available: false,
+    comingSoon: true,
   },
 ];
 
@@ -63,7 +76,7 @@ export default function ProductSection() {
             transition={{ duration: 0.6 }}
             className="text-xs text-[#2CFF95] font-medium tracking-widest mb-4 block uppercase"
           >
-            Product
+            Material Capabilities
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -71,45 +84,64 @@ export default function ProductSection() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
-            INCEPT-1 <span className="text-green-accent">Engine Families</span>
+            INCEPT-1 <span className="text-green-accent">Material Capabilities</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#888] text-base lg:text-lg max-w-2xl"
-          >
-            Whether you're prototyping medical devices, aerospace components, or industrial parts, 
-            we have you covered. Take a look at our system components below.
-          </motion.p>
         </div>
 
-        {/* Product Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {productImages.map((item, index) => (
+        {/* Overview */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="card-dark p-8 rounded-xl mb-12"
+        >
+          <h3 className="text-xl font-semibold text-white mb-4">Overview</h3>
+          <p className="text-[#888] leading-relaxed text-base lg:text-lg">
+            INCEPT-1 is a <span className="text-[#2CFF95] font-medium">modular 3D printing platform</span> where 
+            you can seamlessly switch between different materials by simply changing the mounting head. This 
+            revolutionary approach enables processing of silicone, epoxy resins, foams, and advanced composites 
+            on a single machine. From flexible gaskets to rigid structural parts, from insulation foams to 
+            conductive circuits – unlock limitless manufacturing possibilities with one platform.
+          </p>
+        </motion.div>
+
+        {/* Materials Gallery */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {materials.map((material, index) => (
             <motion.div
-              key={item.id}
+              key={material.id}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className={`product-card group cursor-pointer ${
-                item.large ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : ""
+              className={`product-card group cursor-pointer relative ${
+                material.comingSoon ? "opacity-80" : ""
               }`}
-              data-testid={`product-image-${item.id}`}
+              data-testid={`material-card-${material.id}`}
             >
+              {/* Coming Soon Badge */}
+              {material.comingSoon && (
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 bg-[#2CFF95]/20 border border-[#2CFF95]/40 rounded-full">
+                  <Clock className="w-3 h-3 text-[#2CFF95]" />
+                  <span className="text-xs text-[#2CFF95] font-semibold">Coming Soon</span>
+                </div>
+              )}
+              
               <div className="relative overflow-hidden">
                 <motion.img
-                  src={item.src}
-                  alt={item.label}
-                  className={`w-full object-contain bg-[#0d0d0d] transition-transform duration-700 group-hover:scale-105 ${
-                    item.large ? "h-full min-h-[400px]" : "h-64"
+                  src={material.image}
+                  alt={material.name}
+                  className={`w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105 ${
+                    material.comingSoon ? "grayscale-[30%]" : ""
                   }`}
                   whileHover={{ scale: 1.02 }}
                 />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                
                 {/* Label Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                  <span className="label-badge mb-3">{item.label}</span>
-                  <p className="text-[#888] text-sm">{item.description}</p>
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h4 className="text-lg font-semibold text-white mb-1">{material.name}</h4>
+                  <p className="text-[#888] text-sm">{material.description}</p>
                 </div>
               </div>
             </motion.div>
