@@ -27,11 +27,11 @@ export default function Footer() {
               className="flex items-center gap-4 mb-6">
 
               <div className="w-16 h-16 bg-[#2CFF95] rounded-xl flex items-center justify-center p-0.5 overflow-hidden">
-                <img 
-                  src="/images/makerise-logo.png" 
-                  alt="Makerise Logo" 
-                  className="w-full h-full object-contain scale-125"
-                />
+                <img
+                  src="/images/makerise-logo.png"
+                  alt="Makerise Logo"
+                  className="w-full h-full object-contain scale-125" />
+
               </div>
               <div>
                 <span className="font-bold text-white text-2xl tracking-tight block leading-none">
@@ -48,7 +48,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2 text-sm text-[#555]">
               <span className="w-2 h-2 bg-[#2CFF95] rounded-full pulse-green" />
-              Led by R&D experts from IIT Indore
+              Led by R&D experts from IIT
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export default function Footer() {
                 data-testid="footer-email">
 
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">wemakeverything@gmail.com</span>
+                <span className="text-sm">info@makevery.in</span>
               </motion.a>
               <div className="flex items-start gap-3 text-[#888]">
                 <MapPin className="w-4 h-4 mt-0.5" />
@@ -87,10 +87,10 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
             <div className="space-y-3">
               {quickLinks.map((link) => <motion.a
-                  key={link.label}
-                  href={link.href}
-                  whileHover={{ x: 4 }}
-                  className="block text-sm text-[#888] hover:text-[#2CFF95] transition-colors">
+                key={link.label}
+                href={link.href}
+                whileHover={{ x: 4 }}
+                className="block text-sm text-[#888] hover:text-[#2CFF95] transition-colors">
 
                   {link.label}
                 </motion.a>
