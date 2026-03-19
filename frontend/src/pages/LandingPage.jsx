@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
+import TaglineSection from "../components/TaglineSection";
 import MissionSection from "../components/MissionSection";
 import FeaturesSection from "../components/FeaturesSection";
 import ProductSection from "../components/ProductSection";
@@ -21,6 +22,7 @@ export default function LandingPage() {
       />
       <main>
         <HeroSection />
+        <TaglineSection />
         <MissionSection />
         <FeaturesSection />
         <ProductSection />
