@@ -55,7 +55,7 @@ export default function HeroSection() {
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6"
               data-testid="hero-headline">
 
-              A new generation of{" "}
+              INCEPT-1: A new generation of{" "}
               <span className="text-green-accent">3D printing</span>
             </motion.h1>
 
