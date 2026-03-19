@@ -26,9 +26,11 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6">
 
-              <div className="w-12 h-12 bg-[#2CFF95] rounded-lg flex items-center justify-center">
-                <span className="font-bold text-black text-2xl">M</span>
-              </div>
+              <img 
+                src="/images/makerise-logo.png" 
+                alt="Makerise Logo" 
+                className="w-12 h-12 object-contain invert"
+              />
               <div>
                 <span className="font-bold text-white text-xl tracking-tight block leading-none">
                   MAKERISE

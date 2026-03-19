@@ -50,9 +50,11 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen }) {
             whileHover={{ scale: 1.02 }}
             data-testid="logo-link"
           >
-            <div className="w-10 h-10 bg-[#2CFF95] rounded-lg flex items-center justify-center">
-              <span className="font-bold text-black text-xl">M</span>
-            </div>
+            <img 
+              src="/images/makerise-logo.png" 
+              alt="Makerise Logo" 
+              className="w-10 h-10 object-contain invert"
+            />
             <div className="flex flex-col">
               <span className="font-bold text-white text-lg tracking-tight leading-none">
                 MAKERISE
