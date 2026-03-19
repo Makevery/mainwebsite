@@ -26,11 +26,11 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-4 mb-6">
 
-              <div className="w-16 h-16 bg-[#2CFF95] rounded-xl flex items-center justify-center p-2.5">
+              <div className="w-16 h-16 bg-[#2CFF95] rounded-xl flex items-center justify-center p-0.5 overflow-hidden">
                 <img 
                   src="/images/makerise-logo.png" 
                   alt="Makerise Logo" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain scale-125"
                 />
               </div>
               <div>

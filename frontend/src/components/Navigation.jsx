@@ -50,11 +50,11 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen }) {
             whileHover={{ scale: 1.02 }}
             data-testid="logo-link"
           >
-            <div className="w-14 h-14 bg-[#2CFF95] rounded-xl flex items-center justify-center p-2">
+            <div className="w-14 h-14 bg-[#2CFF95] rounded-xl flex items-center justify-center p-0.5 overflow-hidden">
               <img 
                 src="/images/makerise-logo.png" 
                 alt="Makerise Logo" 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain scale-125"
               />
             </div>
             <div className="flex flex-col">
