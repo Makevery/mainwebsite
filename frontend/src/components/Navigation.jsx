@@ -50,7 +50,7 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen }) {
             whileHover={{ scale: 1.02 }}
             data-testid="logo-link"
           >
-            <div className="w-10 h-10 bg-[#2CFF95] rounded-lg flex items-center justify-center p-1.5">
+            <div className="w-14 h-14 bg-[#2CFF95] rounded-xl flex items-center justify-center p-2">
               <img 
                 src="/images/makerise-logo.png" 
                 alt="Makerise Logo" 
@@ -58,10 +58,10 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen }) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-white text-lg tracking-tight leading-none">
+              <span className="font-bold text-white text-xl tracking-tight leading-none">
                 MAKERISE
               </span>
-              <span className="text-[10px] text-[#666] tracking-[0.2em]">
+              <span className="text-[11px] text-[#666] tracking-[0.15em]">
                 INNOVATIONS
               </span>
             </div>

@@ -71,12 +71,14 @@ export default function MissionSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden glow-green-sm bg-[#0a0a0a] p-4">
-              <img
-                src="/images/incept1/incept1_printer.png"
-                alt="INCEPT-1 3D Printer"
-                className="w-full h-auto"
-              />
+            <div className="relative rounded-2xl overflow-hidden glow-green-sm bg-[#0a0a0a]">
+              <div className="w-full h-[400px] lg:h-[500px] overflow-hidden">
+                <img
+                  src="/images/incept1/incept1_printer.png"
+                  alt="INCEPT-1 3D Printer"
+                  className="w-full h-full object-cover object-center scale-150"
+                />
+              </div>
             </div>
           </motion.div>
         </div>

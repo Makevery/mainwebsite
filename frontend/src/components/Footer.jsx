@@ -24,9 +24,9 @@ export default function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 mb-6">
+              className="flex items-center gap-4 mb-6">
 
-              <div className="w-12 h-12 bg-[#2CFF95] rounded-lg flex items-center justify-center p-2">
+              <div className="w-16 h-16 bg-[#2CFF95] rounded-xl flex items-center justify-center p-2.5">
                 <img 
                   src="/images/makerise-logo.png" 
                   alt="Makerise Logo" 
@@ -34,10 +34,10 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <span className="font-bold text-white text-xl tracking-tight block leading-none">
+                <span className="font-bold text-white text-2xl tracking-tight block leading-none">
                   MAKERISE
                 </span>
-                <span className="text-[10px] text-[#555] tracking-[0.2em]">
+                <span className="text-[11px] text-[#555] tracking-[0.15em]">
                   INNOVATIONS PVT. LTD
                 </span>
               </div>
