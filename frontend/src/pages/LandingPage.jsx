@@ -6,6 +6,7 @@ import FeaturesSection from "../components/FeaturesSection";
 import ProductSection from "../components/ProductSection";
 import TimelineSection from "../components/TimelineSection";
 import ApplicationsSection from "../components/ApplicationsSection";
+import TeamSection from "../components/TeamSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
@@ -25,6 +26,7 @@ export default function LandingPage() {
         <ProductSection />
         <TimelineSection />
         <ApplicationsSection />
+        <TeamSection />
         <ContactSection />
       </main>
       <Footer />
