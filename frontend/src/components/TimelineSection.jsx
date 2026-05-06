@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Rocket } from "lucide-react";
-import { plane-takeoff } from "lucide-react";
+import { PlaneTakeoff } from "lucide-react";
 
 const timelineEvents = [
 {
@@ -30,11 +30,12 @@ const timelineEvents = [
 },
 {
   year: "2025",
-  title: "Today",
-  description: "Incubated at NCAM Hyderabad for development of MVP. Ready for collaborative partnerships and commercial deployment.",
+  title: "MVP development",
+  description: "Incubated at NCAM Hyderabad for development of MVP. Lab-validated prototype, advancing toward pilot deployments through ongoing industry discussions.",
   image: null,
   isGraphic: true,
-  icon: plane-takeoff
+  icon: PlaneTakeoff
+},
 {
   year: "2026",
   title: "MVP ready",
@@ -143,7 +144,7 @@ export default function TimelineSection() {
                           <event.icon className="w-12 h-12 text-[#2CFF95]" strokeWidth={1.5} />
                         </motion.div>
                         <p className="text-[#2CFF95] font-semibold text-lg">Ready for Launch</p>
-                        <p className="text-[#666] text-sm mt-2">Commercial Partnerships</p>
+                        <p className="text-[#666] text-sm mt-2">Pilot Discussions Ongoing</p>
                       </div>
                     </div> : event.isDiagram ?
                     
