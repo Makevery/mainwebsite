@@ -31,18 +31,22 @@ const timelineEvents = [
 {
   year: "2025",
   title: "MVP development",
-  description: "Incubated at NCAM Hyderabad for development of MVP. Lab-validated prototype, advancing toward pilot deployments through ongoing industry discussions.",
+  description: "...",
   image: null,
   isGraphic: true,
-  icon: PlaneTakeoff
+  icon: PlaneTakeoff,
+  statusTitle: "Lab Validated",
+  statusSubtitle: "Pilot Discussions Ongoing"
 },
 {
   year: "2026",
   title: "MVP ready",
-  description: "Lab-validated technology with active discussions for pilot deployments and early partnerships.",
+  description: "...",
   image: null,
   isGraphic: true,
-  icon: Rocket 
+  icon: Rocket,
+  statusTitle: "Pilot Deployments",
+  statusSubtitle: "Early Commercial Partnerships"
 }];
 
 
@@ -143,8 +147,8 @@ export default function TimelineSection() {
 
                           <event.icon className="w-12 h-12 text-[#2CFF95]" strokeWidth={1.5} />
                         </motion.div>
-                        <p className="text-[#2CFF95] font-semibold text-lg">Ready for Launch</p>
-                        <p className="text-[#666] text-sm mt-2">Pilot Discussions Ongoing</p>
+                        <p className="text-[#2CFF95] font-semibold text-lg">{event.statusTitle}</p>
+                        <p className="text-[#666] text-sm mt-2">{event.statusSubtitle}</p>
                       </div>
                     </div> : event.isDiagram ?
                     
