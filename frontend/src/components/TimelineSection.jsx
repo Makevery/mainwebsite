@@ -31,7 +31,7 @@ const timelineEvents = [
 {
   year: "2025",
   title: "MVP development",
-  description: "...",
+  description: "Incubated at NCAM Hyderabad for development of MVP. Lab-validated prototype, advancing toward pilot deployments through ongoing industry discussions.",
   image: null,
   isGraphic: true,
   icon: PlaneTakeoff,
@@ -41,7 +41,7 @@ const timelineEvents = [
 {
   year: "2026",
   title: "MVP ready",
-  description: "...",
+  description: "Lab-validated technology with active discussions for pilot deployments and early partnerships.",
   image: null,
   isGraphic: true,
   icon: Rocket,
