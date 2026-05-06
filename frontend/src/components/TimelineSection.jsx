@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Rocket } from "lucide-react";
+import { plane-takeoff } from "lucide-react";
 
 const timelineEvents = [
 {
@@ -30,10 +31,17 @@ const timelineEvents = [
 {
   year: "2025",
   title: "Today",
-  description: "Development review at TRIPRAMAN, NCAM Hyderabad. Ready for collaborative partnerships and commercial deployment.",
+  description: "Incubated at NCAM Hyderabad for development of MVP. Ready for collaborative partnerships and commercial deployment.",
   image: null,
   isGraphic: true,
-  icon: Rocket
+  icon: plane-takeoff
+{
+  year: "2026",
+  title: "MVP ready",
+  description: "Lab-validated technology with active discussions for pilot deployments and early partnerships.",
+  image: null,
+  isGraphic: true,
+  icon: Rocket 
 }];
 
 
